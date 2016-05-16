@@ -1,0 +1,17 @@
+﻿
+@@!!OVERLOADED_SearchADUsingLDAPQuery_ADSearcher.CADSearcher
+Summary
+Searches the Active Directory using
+"(&amp;(&amp;(objectCategory=person)(objectClass=user))" +
+query + ")" as the base query string.
+
+@@!!OVERLOADED_GetUserDisabled_ADSearcher.CADSearcher
+Summary
+Find the user's account status. If the requested user account
+has been disabled in LDAP it should no longer have access to
+any authenticated network assets.
+
+This is placed in the CADSearcher class because this check
+can be done without retrieving the user's entire property set
+and is therefore a lightweight alternative to getting full
+user account information.

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0"?>
+<package>
+    <metadata>
+        <id>ADSearcher</id>
+        <version>1.3.0.1</version>
+        <title>Active Directory Search Tool</title>
+        <authors>Scientific Games SRES</authors>
+        <owners></owners>
+        <description>A set of search tools for Active Directory</description>
+        <releaseNotes>1.3.0.1 Released 16 May 2016 - Breaking change: now uses unified domain list for multi-domain searches.</releaseNotes>
+        <summary>An assembly for simplifying access to Active Directory functionality.</summary>
+        <language>en-US</language>
+        <iconUrl>http://scmweb03.engscm.ad.agi/PerforceRegistration/favicon.ico</iconUrl>
+        <copyright>Copyright © Scientific Games 2015</copyright>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <dependencies>
+            <dependency id="log4net" version="[2.0.3]" />
+        </dependencies>
+        <frameworkAssemblies>
+            <frameworkAssembly assemblyName="System" targetFramework="net40-Client" />
+            <frameworkAssembly assemblyName="System.Core" targetFramework="net40-Client" />
+        </frameworkAssemblies>
+        <tags>Scientific Games Active Directory Search</tags>
+		<references>
+			<reference file="ADSearcher.dll" />
+		</references>
+    </metadata>
+    <files>
+        <file src="\bin\ADSearcher.dll" target="lib/net40-Client/" />
+    </files>
+</package>

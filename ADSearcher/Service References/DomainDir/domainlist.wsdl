@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://DomainDirectory/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://DomainDirectory/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://DomainDirectory/">
+      <s:element name="GetDomainDirectory">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDomainDirectoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDomainDirectoryResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetDomainDirectorySoapIn">
+    <wsdl:part name="parameters" element="tns:GetDomainDirectory" />
+  </wsdl:message>
+  <wsdl:message name="GetDomainDirectorySoapOut">
+    <wsdl:part name="parameters" element="tns:GetDomainDirectoryResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DomainListServiceSoap">
+    <wsdl:operation name="GetDomainDirectory">
+      <wsdl:input message="tns:GetDomainDirectorySoapIn" />
+      <wsdl:output message="tns:GetDomainDirectorySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DomainListServiceSoap" type="tns:DomainListServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDomainDirectory">
+      <soap:operation soapAction="http://DomainDirectory/GetDomainDirectory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DomainListServiceSoap12" type="tns:DomainListServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDomainDirectory">
+      <soap12:operation soapAction="http://DomainDirectory/GetDomainDirectory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DomainListService">
+    <wsdl:port name="DomainListServiceSoap" binding="tns:DomainListServiceSoap">
+      <soap:address location="http://scmweb03.engscm.ad.agi/domaindirectory/domainlist.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DomainListServiceSoap12" binding="tns:DomainListServiceSoap12">
+      <soap12:address location="http://scmweb03.engscm.ad.agi/domaindirectory/domainlist.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

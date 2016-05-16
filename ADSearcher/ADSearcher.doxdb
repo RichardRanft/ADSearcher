@@ -1,0 +1,808 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectdatabase version="7">
+  <linkdatabase>
+    <link>
+      <topicid>!!CLASSES_ADSearcher</topicid>
+      <displaystring>Classes</displaystring>
+      <target id="html">../CADSearcherDocs/!!CLASSES_ADSearcher.html</target>
+      <target id="pdf">pdf://7@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>!!FILES</topicid>
+      <displaystring>Files</displaystring>
+      <target id="html">../CADSearcherDocs/!!FILES.html</target>
+      <target id="pdf">pdf://56@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>!!MEMBEROVERVIEW_ADSearcher.CADSearcher</topicid>
+      <displaystring>CADSearcher Members</displaystring>
+      <target id="html">../CADSearcherDocs/!!MEMBEROVERVIEW_ADSearcher_CADSearcher.html</target>
+    </link>
+    <link>
+      <topicid>!!MEMBEROVERVIEW_ADSearcher.CDomain</topicid>
+      <displaystring>CDomain Members</displaystring>
+      <target id="html">../CADSearcherDocs/!!MEMBEROVERVIEW_ADSearcher_CDomain.html</target>
+    </link>
+    <link>
+      <topicid>!!MEMBEROVERVIEW_ADSearcher.CDomainCredentials</topicid>
+      <displaystring>CDomainCredentials Members</displaystring>
+      <target id="html">../CADSearcherDocs/!!MEMBEROVERVIEW_ADSearcher_CDomainCredentials.html</target>
+    </link>
+    <link>
+      <topicid>!!MEMBEROVERVIEW_ADSearcher.LDAPgroup</topicid>
+      <displaystring>LDAPgroup Members</displaystring>
+      <target id="html">../CADSearcherDocs/!!MEMBEROVERVIEW_ADSearcher_LDAPgroup.html</target>
+    </link>
+    <link>
+      <topicid>!!MEMBEROVERVIEW_ADSearcher.LDAPRawObject</topicid>
+      <displaystring>LDAPRawObject Members</displaystring>
+      <target id="html">../CADSearcherDocs/!!MEMBEROVERVIEW_ADSearcher_LDAPRawObject.html</target>
+    </link>
+    <link>
+      <topicid>!!MEMBEROVERVIEW_ADSearcher.LDAPuser</topicid>
+      <displaystring>LDAPuser Members</displaystring>
+      <target id="html">../CADSearcherDocs/!!MEMBEROVERVIEW_ADSearcher_LDAPuser.html</target>
+    </link>
+    <link>
+      <topicid>!!MEMBERTYPE_Fields_ADSearcher.CADSearcher</topicid>
+      <displaystring>CADSearcher Fields</displaystring>
+      <target id="html">../CADSearcherDocs/!!MEMBERTYPE_Fields_ADSearcher_CADSearcher.html</target>
+    </link>
+    <link>
+      <topicid>!!MEMBERTYPE_Fields_ADSearcher.CDomain</topicid>
+      <displaystring>CDomain Fields</displaystring>
+      <target id="html">../CADSearcherDocs/!!MEMBERTYPE_Fields_ADSearcher_CDomain.html</target>
+    </link>
+    <link>
+      <topicid>!!MEMBERTYPE_Fields_ADSearcher.CDomainCredentials</topicid>
+      <displaystring>CDomainCredentials Fields</displaystring>
+      <target id="html">../CADSearcherDocs/!!MEMBERTYPE_Fields_ADSearcher_CDomainCredentials.html</target>
+    </link>
+    <link>
+      <topicid>!!MEMBERTYPE_Methods_ADSearcher.CADSearcher</topicid>
+      <displaystring>CADSearcher Methods</displaystring>
+      <target id="html">../CADSearcherDocs/!!MEMBERTYPE_Methods_ADSearcher_CADSearcher.html</target>
+      <target id="pdf">pdf://15@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>!!MEMBERTYPE_Methods_ADSearcher.LDAPgroup</topicid>
+      <displaystring>LDAPgroup Methods</displaystring>
+      <target id="html">../CADSearcherDocs/!!MEMBERTYPE_Methods_ADSearcher_LDAPgroup.html</target>
+      <target id="pdf">pdf://36@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>!!MEMBERTYPE_Methods_ADSearcher.LDAPRawObject</topicid>
+      <displaystring>LDAPRawObject Methods</displaystring>
+      <target id="html">../CADSearcherDocs/!!MEMBERTYPE_Methods_ADSearcher_LDAPRawObject.html</target>
+    </link>
+    <link>
+      <topicid>!!MEMBERTYPE_Methods_ADSearcher.LDAPuser</topicid>
+      <displaystring>LDAPuser Methods</displaystring>
+      <target id="html">../CADSearcherDocs/!!MEMBERTYPE_Methods_ADSearcher_LDAPuser.html</target>
+    </link>
+    <link>
+      <topicid>!!MEMBERTYPE_Properties_ADSearcher.CADSearcher</topicid>
+      <displaystring>CADSearcher Properties</displaystring>
+      <target id="html">../CADSearcherDocs/!!MEMBERTYPE_Properties_ADSearcher_CADSearcher.html</target>
+    </link>
+    <link>
+      <topicid>!!MEMBERTYPE_Properties_ADSearcher.LDAPgroup</topicid>
+      <displaystring>LDAPgroup Properties</displaystring>
+      <target id="html">../CADSearcherDocs/!!MEMBERTYPE_Properties_ADSearcher_LDAPgroup.html</target>
+      <target id="pdf">pdf://41@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>!!MEMBERTYPE_Properties_ADSearcher.LDAPRawObject</topicid>
+      <displaystring>LDAPRawObject Properties</displaystring>
+      <target id="html">../CADSearcherDocs/!!MEMBERTYPE_Properties_ADSearcher_LDAPRawObject.html</target>
+    </link>
+    <link>
+      <topicid>!!MEMBERTYPE_Properties_ADSearcher.LDAPuser</topicid>
+      <displaystring>LDAPuser Properties</displaystring>
+      <target id="html">../CADSearcherDocs/!!MEMBERTYPE_Properties_ADSearcher_LDAPuser.html</target>
+      <target id="pdf">pdf://54@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>!!OVERLOADED_AddUser_ADSearcher.LDAPgroup</topicid>
+      <displaystring>AddUser Method</displaystring>
+      <target id="html">../CADSearcherDocs/!!OVERLOADED_AddUser_ADSearcher_LDAPgroup.html</target>
+      <target id="pdf">pdf://37@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>!!OVERLOADED_GetUserDisabled_ADSearcher.CADSearcher</topicid>
+      <displaystring>GetUserDisabled Method</displaystring>
+      <target id="html">../CADSearcherDocs/!!OVERLOADED_GetUserDisabled_ADSearcher_CADSearcher.html</target>
+      <target id="pdf">pdf://16@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>!!OVERLOADED_LDAPgroup_ADSearcher.LDAPgroup</topicid>
+      <displaystring>LDAPgroup Constructor</displaystring>
+      <target id="html">../CADSearcherDocs/!!OVERLOADED_LDAPgroup_ADSearcher_LDAPgroup.html</target>
+      <target id="pdf">pdf://33@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>!!OVERLOADED_LDAPRawObject_ADSearcher.LDAPRawObject</topicid>
+      <displaystring>LDAPRawObject Constructor</displaystring>
+      <target id="html">../CADSearcherDocs/!!OVERLOADED_LDAPRawObject_ADSearcher_LDAPRawObject.html</target>
+    </link>
+    <link>
+      <topicid>!!OVERLOADED_SearchADUsingLDAPQuery_ADSearcher.CADSearcher</topicid>
+      <displaystring>SearchADUsingLDAPQuery Method</displaystring>
+      <target id="html">../CADSearcherDocs/!!OVERLOADED_SearchADUsingLDAPQuery_ADSearcher_CADSearcher.html</target>
+      <target id="pdf">pdf://18@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>!!OVERLOADED_UpdateDescription_ADSearcher.LDAPgroup</topicid>
+      <displaystring>UpdateDescription Method</displaystring>
+      <target id="html">../CADSearcherDocs/!!OVERLOADED_UpdateDescription_ADSearcher_LDAPgroup.html</target>
+      <target id="pdf">pdf://39@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>!!RECORDS_ADSearcher</topicid>
+      <displaystring>Structs, Records, Enums</displaystring>
+      <target id="html">../CADSearcherDocs/!!RECORDS_ADSearcher.html</target>
+      <target id="pdf">pdf://55@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>!!SYMREF</topicid>
+      <displaystring>Symbol Reference</displaystring>
+      <target id="pdf">pdf://1@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher</topicid>
+      <displaystring>ADSearcher Namespace</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher.html</target>
+      <target id="pdf">pdf://2@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.ActiveDirectoryGroupType</topicid>
+      <displaystring>ADSearcher.ActiveDirectoryGroupType Enumeration</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_ActiveDirectoryGroupType.html</target>
+      <target id="pdf">pdf://6@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.ADS_GROUP_TYPE_DISTRIBUTION_GROUP</topicid>
+      <displaystring>ADS_GROUP_TYPE_DISTRIBUTION_GROUP</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_ActiveDirectoryGroupType.html</target>
+      <target id="pdf">pdf://6@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.ADS_GROUP_TYPE_DOMAIN_LOCAL_GROUP</topicid>
+      <displaystring>ADS_GROUP_TYPE_DOMAIN_LOCAL_GROUP</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_ActiveDirectoryGroupType.html</target>
+      <target id="pdf">pdf://6@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.ADS_GROUP_TYPE_GLOBAL_GROUP</topicid>
+      <displaystring>ADS_GROUP_TYPE_GLOBAL_GROUP</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_ActiveDirectoryGroupType.html</target>
+      <target id="pdf">pdf://6@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.ADS_GROUP_TYPE_LOCAL_GROUP</topicid>
+      <displaystring>ADS_GROUP_TYPE_LOCAL_GROUP</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_ActiveDirectoryGroupType.html</target>
+      <target id="pdf">pdf://6@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.ADS_GROUP_TYPE_SECURITY_ENABLED</topicid>
+      <displaystring>ADS_GROUP_TYPE_SECURITY_ENABLED</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_ActiveDirectoryGroupType.html</target>
+      <target id="pdf">pdf://6@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.ADS_GROUP_TYPE_UNIVERSAL_GROUP</topicid>
+      <displaystring>ADS_GROUP_TYPE_UNIVERSAL_GROUP</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_ActiveDirectoryGroupType.html</target>
+      <target id="pdf">pdf://6@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.ALL</topicid>
+      <displaystring>ALL</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_ErrorLevel.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.ALLTOINFO</topicid>
+      <displaystring>ALLTOINFO</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_ErrorLevel.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.ALLTOWARN</topicid>
+      <displaystring>ALLTOWARN</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_ErrorLevel.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.CADSearcher</topicid>
+      <displaystring>CADSearcher Class</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_CADSearcher.html</target>
+      <target id="pdf">pdf://3@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.CADSearcher.AllowIncompleteUserdata</topicid>
+      <displaystring>CADSearcher.AllowIncompleteUserdata Property</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_CADSearcher_AllowIncompleteUserdata.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.CADSearcher.CADSearcher</topicid>
+      <displaystring>CADSearcher.CADSearcher Constructor</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_CADSearcher_CADSearcher.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.CADSearcher.Domains</topicid>
+      <displaystring>CADSearcher.Domains Field</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_CADSearcher_Domains.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.CADSearcher.Dump</topicid>
+      <displaystring>CADSearcher.Dump Property</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_CADSearcher_Dump.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.CADSearcher.EmailOwnedByAdUser@LDAPuser@string</topicid>
+      <displaystring>CADSearcher.EmailOwnedByAdUser Method</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_CADSearcher_EmailOwnedByAdUser@LDAPuser@string.html</target>
+      <target id="pdf">pdf://9@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.CADSearcher.ErrorModifyLevel</topicid>
+      <displaystring>CADSearcher.ErrorModifyLevel Property</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_CADSearcher_ErrorModifyLevel.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.CADSearcher.FieldsOnly</topicid>
+      <displaystring>CADSearcher.FieldsOnly Property</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_CADSearcher_FieldsOnly.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.CADSearcher.GetDistributionGroups@String@String</topicid>
+      <displaystring>CADSearcher.GetDistributionGroups Method</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_CADSearcher_GetDistributionGroups@String@String.html</target>
+      <target id="pdf">pdf://10@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.CADSearcher.GetGroup@String@String</topicid>
+      <displaystring>CADSearcher.GetGroup Method</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_CADSearcher_GetGroup@String@String.html</target>
+      <target id="pdf">pdf://11@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.CADSearcher.GetGroups@String@String</topicid>
+      <displaystring>CADSearcher.GetGroups Method</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_CADSearcher_GetGroups@String@String.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.CADSearcher.GetSecurityGroups@String@String</topicid>
+      <displaystring>CADSearcher.GetSecurityGroups Method</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_CADSearcher_GetSecurityGroups@String@String.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.CADSearcher.getUserDetailsFromAD@string</topicid>
+      <displaystring>CADSearcher.getUserDetailsFromAD Method</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_CADSearcher_getUserDetailsFromAD@string.html</target>
+      <target id="pdf">pdf://12@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.CADSearcher.GetUserDisabled@string</topicid>
+      <displaystring>CADSearcher.GetUserDisabled Method (string)</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_CADSearcher_GetUserDisabled@string.html</target>
+      <target id="pdf">pdf://13@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.CADSearcher.GetUserDisabled@string@string</topicid>
+      <displaystring>CADSearcher.GetUserDisabled Method (string, string)</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_CADSearcher_GetUserDisabled@string@string.html</target>
+      <target id="pdf">pdf://17@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.CADSearcher.LimitProperties</topicid>
+      <displaystring>CADSearcher.LimitProperties Property</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_CADSearcher_LimitProperties.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.CADSearcher.QueryLDAP@string</topicid>
+      <displaystring>CADSearcher.QueryLDAP Method</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_CADSearcher_QueryLDAP@string.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.CADSearcher.SearchADUsingLDAPQuery@string</topicid>
+      <displaystring>CADSearcher.SearchADUsingLDAPQuery Method (string)</displaystring>
+      <target id="pdf">pdf://14@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.CADSearcher.SearchADUsingLDAPQuery@string@bool</topicid>
+      <displaystring>CADSearcher.SearchADUsingLDAPQuery Method (string, bool)</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_CADSearcher_SearchADUsingLDAPQuery@string@bool.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.CADSearcher.SearchADUsingLDAPQuery@string@string</topicid>
+      <displaystring>CADSearcher.SearchADUsingLDAPQuery Method (string, string)</displaystring>
+      <target id="pdf">pdf://19@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.CADSearcher.SearchADUsingLDAPQuery@string@string@bool</topicid>
+      <displaystring>CADSearcher.SearchADUsingLDAPQuery Method (string, string, bool)</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_CADSearcher_SearchADUsingLDAPQuery@string@string@bool.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.CADSearcher.SearchAGIADForContactUsingLDAPQuery@string@string</topicid>
+      <displaystring>CADSearcher.SearchAGIADForContactUsingLDAPQuery Method</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_CADSearcher_SearchAGIADForContactUsingLDAPQuery@string@string.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.CADSearcher.SearchAGIADForContactUsingSID@string@string</topicid>
+      <displaystring>CADSearcher.SearchAGIADForContactUsingSID Method</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_CADSearcher_SearchAGIADForContactUsingSID@string@string.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.CDomain</topicid>
+      <displaystring>CDomain Class</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_CDomain.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.CDomain.Credentials</topicid>
+      <displaystring>CDomain.Credentials Field</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_CDomain_Credentials.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.CDomain.Path</topicid>
+      <displaystring>CDomain.Path Field</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_CDomain_Path.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.CDomainCredentials</topicid>
+      <displaystring>CDomainCredentials Class</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_CDomainCredentials.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.CDomainCredentials.Password</topicid>
+      <displaystring>CDomainCredentials.Password Field</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_CDomainCredentials_Password.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.CDomainCredentials.Username</topicid>
+      <displaystring>CDomainCredentials.Username Field</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_CDomainCredentials_Username.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.ERROR</topicid>
+      <displaystring>ERROR</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LogType.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.ErrorLevel</topicid>
+      <displaystring>ADSearcher.ErrorLevel Enumeration</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_ErrorLevel.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.ERRORTOWARN</topicid>
+      <displaystring>ERRORTOWARN</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_ErrorLevel.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.INFO</topicid>
+      <displaystring>INFO</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LogType.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPgroup</topicid>
+      <displaystring>LDAPgroup Class</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPgroup.html</target>
+      <target id="pdf">pdf://4@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPgroup.AddUser@LDAPuser</topicid>
+      <displaystring>LDAPgroup.AddUser Method (LDAPuser)</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPgroup_AddUser@LDAPuser.html</target>
+      <target id="pdf">pdf://22@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPgroup.AddUser@LDAPuser@String@String</topicid>
+      <displaystring>LDAPgroup.AddUser Method (LDAPuser, String, String)</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPgroup_AddUser@LDAPuser@String@String.html</target>
+      <target id="pdf">pdf://38@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPgroup.CN</topicid>
+      <displaystring>LDAPgroup.CN Property</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPgroup_CN.html</target>
+      <target id="pdf">pdf://28@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPgroup.DC</topicid>
+      <displaystring>LDAPgroup.DC Property</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPgroup_DC.html</target>
+      <target id="pdf">pdf://29@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPgroup.Description</topicid>
+      <displaystring>LDAPgroup.Description Property</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPgroup_Description.html</target>
+      <target id="pdf">pdf://30@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPgroup.Email</topicid>
+      <displaystring>LDAPgroup.Email Property</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPgroup_Email.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPgroup.ErrorModifyLevel</topicid>
+      <displaystring>LDAPgroup.ErrorModifyLevel Property</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPgroup_ErrorModifyLevel.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPgroup.GetGroupMembers</topicid>
+      <displaystring>LDAPgroup.GetGroupMembers Method</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPgroup_GetGroupMembers.html</target>
+      <target id="pdf">pdf://23@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPgroup.LDAPgroup</topicid>
+      <displaystring>LDAPgroup.LDAPgroup Constructor ()</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPgroup_LDAPgroup.html</target>
+      <target id="pdf">pdf://21@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPgroup.LDAPgroup@String</topicid>
+      <displaystring>LDAPgroup.LDAPgroup Constructor (String)</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPgroup_LDAPgroup@String.html</target>
+      <target id="pdf">pdf://34@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPgroup.LDAPgroup@String@String</topicid>
+      <displaystring>LDAPgroup.LDAPgroup Constructor (String, String)</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPgroup_LDAPgroup@String@String.html</target>
+      <target id="pdf">pdf://35@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPgroup.OU</topicid>
+      <displaystring>LDAPgroup.OU Property</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPgroup_OU.html</target>
+      <target id="pdf">pdf://31@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPgroup.RemoveUser@LDAPuser</topicid>
+      <displaystring>LDAPgroup.RemoveUser Method</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPgroup_RemoveUser@LDAPuser.html</target>
+      <target id="pdf">pdf://24@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPgroup.Root</topicid>
+      <displaystring>LDAPgroup.Root Property</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPgroup_Root.html</target>
+      <target id="pdf">pdf://32@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPgroup.ToPath</topicid>
+      <displaystring>LDAPgroup.ToPath Method</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPgroup_ToPath.html</target>
+      <target id="pdf">pdf://25@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPgroup.ToString</topicid>
+      <displaystring>LDAPgroup.ToString Method</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPgroup_ToString.html</target>
+      <target id="pdf">pdf://26@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPgroup.UpdateDescription</topicid>
+      <displaystring>LDAPgroup.UpdateDescription Method ()</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPgroup_UpdateDescription.html</target>
+      <target id="pdf">pdf://27@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPgroup.UpdateDescription@string@string</topicid>
+      <displaystring>LDAPgroup.UpdateDescription Method (string, string)</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPgroup_UpdateDescription@string@string.html</target>
+      <target id="pdf">pdf://40@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPRawObject</topicid>
+      <displaystring>LDAPRawObject Class</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPRawObject.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPRawObject.ErrorModifyLevel</topicid>
+      <displaystring>LDAPRawObject.ErrorModifyLevel Property</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPRawObject_ErrorModifyLevel.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPRawObject.Fields</topicid>
+      <displaystring>LDAPRawObject.Fields Property</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPRawObject_Fields.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPRawObject.LDAPRawObject</topicid>
+      <displaystring>LDAPRawObject.LDAPRawObject Constructor ()</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPRawObject_LDAPRawObject.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPRawObject.LDAPRawObject@SearchResult</topicid>
+      <displaystring>LDAPRawObject.LDAPRawObject Constructor (SearchResult)</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPRawObject_LDAPRawObject@SearchResult.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPRawObject.SetFields@SearchResult</topicid>
+      <displaystring>LDAPRawObject.SetFields Method</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPRawObject_SetFields@SearchResult.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPuser</topicid>
+      <displaystring>LDAPuser Class</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPuser.html</target>
+      <target id="pdf">pdf://5@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPuser.Department</topicid>
+      <displaystring>LDAPuser.Department Property</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPuser_Department.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPuser.Disabled</topicid>
+      <displaystring>LDAPuser.Disabled Property</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPuser_Disabled.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPuser.Domain</topicid>
+      <displaystring>LDAPuser.Domain Property</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPuser_Domain.html</target>
+      <target id="pdf">pdf://43@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPuser.Email</topicid>
+      <displaystring>LDAPuser.Email Property</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPuser_Email.html</target>
+      <target id="pdf">pdf://44@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPuser.Enabled</topicid>
+      <displaystring>LDAPuser.Enabled Property</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPuser_Enabled.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPuser.ErrorModifyLevel</topicid>
+      <displaystring>LDAPuser.ErrorModifyLevel Property</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPuser_ErrorModifyLevel.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPuser.FirstName</topicid>
+      <displaystring>LDAPuser.FirstName Property</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPuser_FirstName.html</target>
+      <target id="pdf">pdf://45@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPuser.FullName</topicid>
+      <displaystring>LDAPuser.FullName Property</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPuser_FullName.html</target>
+      <target id="pdf">pdf://46@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPuser.GetSecurityIdentifier</topicid>
+      <displaystring>LDAPuser.GetSecurityIdentifier Method</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPuser_GetSecurityIdentifier.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPuser.GetSIDString</topicid>
+      <displaystring>LDAPuser.GetSIDString Method</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPuser_GetSIDString.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPuser.Groups</topicid>
+      <displaystring>LDAPuser.Groups Property</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPuser_Groups.html</target>
+      <target id="pdf">pdf://47@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPuser.LastName</topicid>
+      <displaystring>LDAPuser.LastName Property</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPuser_LastName.html</target>
+      <target id="pdf">pdf://48@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPuser.LDAPuser</topicid>
+      <displaystring>LDAPuser.LDAPuser Constructor</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPuser_LDAPuser.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPuser.OtherEmails</topicid>
+      <displaystring>LDAPuser.OtherEmails Property</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPuser_OtherEmails.html</target>
+      <target id="pdf">pdf://49@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPuser.OwnsEmail@string</topicid>
+      <displaystring>LDAPuser.OwnsEmail Method</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPuser_OwnsEmail@string.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPuser.Password</topicid>
+      <displaystring>LDAPuser.Password Property</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPuser_Password.html</target>
+      <target id="pdf">pdf://50@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPuser.PrincipalName</topicid>
+      <displaystring>LDAPuser.PrincipalName Property</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPuser_PrincipalName.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPuser.Title</topicid>
+      <displaystring>LDAPuser.Title Property</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPuser_Title.html</target>
+      <target id="pdf">pdf://51@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPuser.UserDN</topicid>
+      <displaystring>LDAPuser.UserDN Property</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPuser_UserDN.html</target>
+      <target id="pdf">pdf://52@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LDAPuser.Username</topicid>
+      <displaystring>LDAPuser.Username Property</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LDAPuser_Username.html</target>
+      <target id="pdf">pdf://53@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.LogType</topicid>
+      <displaystring>ADSearcher.LogType Enumeration</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LogType.html</target>
+    </link>
+    <link>
+      <topicid>ADSearcher.WARN</topicid>
+      <displaystring>WARN</displaystring>
+      <target id="html">../CADSearcherDocs/ADSearcher_LogType.html</target>
+    </link>
+    <link>
+      <topicid>CADSearcher.cs</topicid>
+      <displaystring>CADSearcher.cs</displaystring>
+      <target id="html">../CADSearcherDocs/CADSearcher_cs.html</target>
+      <target id="pdf">pdf://8@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>CDomain.cs</topicid>
+      <displaystring>CDomain.cs</displaystring>
+      <target id="html">../CADSearcherDocs/CDomain_cs.html</target>
+    </link>
+    <link>
+      <topicid>LDAPgroup.cs</topicid>
+      <displaystring>LDAPgroup.cs</displaystring>
+      <target id="html">../CADSearcherDocs/LDAPgroup_cs.html</target>
+      <target id="pdf">pdf://20@ADSearcher.pdf</target>
+    </link>
+    <link>
+      <topicid>LDAPRawObject.cs</topicid>
+      <displaystring>LDAPRawObject.cs</displaystring>
+      <target id="html">../CADSearcherDocs/LDAPRawObject_cs.html</target>
+    </link>
+    <link>
+      <topicid>LDAPuser.cs</topicid>
+      <displaystring>LDAPuser.cs</displaystring>
+      <target id="html">../CADSearcherDocs/LDAPuser_cs.html</target>
+      <target id="pdf">pdf://42@ADSearcher.pdf</target>
+    </link>
+  </linkdatabase>
+  <classinformation>
+    <namespace name="ADSearcher" language="2">
+      <class name="ActiveDirectoryGroupType" language="2" type="7" using="log4net,System,System.Collections,System.Collections.Generic,System.Collections.Specialized,System.DirectoryServices,System.IO,System.Linq,System.Security.Principal,System.Web">
+        <ancestor name="uint"></ancestor>
+        <field name="ADS_GROUP_TYPE_DISTRIBUTION_GROUP"></field>
+        <field name="ADS_GROUP_TYPE_DOMAIN_LOCAL_GROUP"></field>
+        <field name="ADS_GROUP_TYPE_GLOBAL_GROUP"></field>
+        <field name="ADS_GROUP_TYPE_LOCAL_GROUP"></field>
+        <field name="ADS_GROUP_TYPE_SECURITY_ENABLED"></field>
+        <field name="ADS_GROUP_TYPE_UNIVERSAL_GROUP"></field>
+      </class>
+      <class name="CADSearcher" language="2" type="0" using="log4net,System,System.Collections,System.Collections.Generic,System.Collections.Specialized,System.DirectoryServices,System.IO,System.Linq,System.Web">
+        <field name="ADS_UF_ACCOUNTDISABLE"></field>
+        <field name="Domains"></field>
+        <field name="m_log"></field>
+        <property name="AllowIncompleteUserdata" info="bool"></property>
+        <property name="Dump" info="bool"></property>
+        <property name="ErrorModifyLevel" info="ErrorLevel"></property>
+        <property name="FieldsOnly" info="bool"></property>
+        <property name="LimitProperties" info="bool"></property>
+        <method name="CADSearcher"></method>
+        <method name="dumpValues"></method>
+        <method name="EmailOwnedByAdUser"></method>
+        <method name="GetDistributionGroups"></method>
+        <method name="GetGroup"></method>
+        <method name="GetGroups"></method>
+        <method name="getLDAPContactFromSearchResult"></method>
+        <method name="getLDAPUserFromSearch"></method>
+        <method name="GetSecurityGroups"></method>
+        <method name="getTimeString"></method>
+        <method name="getUserDetailsFromAD"></method>
+        <method name="GetUserDisabled"></method>
+        <method name="GetUserDisabled"></method>
+        <method name="logMessage"></method>
+        <method name="QueryLDAP"></method>
+        <method name="SearchADUsingLDAPQuery"></method>
+        <method name="SearchADUsingLDAPQuery"></method>
+        <method name="SearchAGIADForContactUsingLDAPQuery"></method>
+        <method name="SearchAGIADForContactUsingSID"></method>
+      </class>
+      <class name="CDomain" language="2" type="0" using="System,System.Collections.Generic,System.Linq,System.Text,System.Threading.Tasks">
+        <field name="Credentials"></field>
+        <field name="Path"></field>
+      </class>
+      <class name="CDomainCredentials" language="2" type="0" using="System,System.Collections.Generic,System.Linq,System.Text,System.Threading.Tasks">
+        <field name="Password"></field>
+        <field name="Username"></field>
+      </class>
+      <class name="ErrorLevel" language="2" type="7" using="log4net,System,System.Collections,System.Collections.Generic,System.Collections.Specialized,System.DirectoryServices,System.IO,System.Linq,System.Web">
+        <field name="ALL"></field>
+        <field name="ALLTOINFO"></field>
+        <field name="ALLTOWARN"></field>
+        <field name="ERRORTOWARN"></field>
+      </class>
+      <class name="LDAPgroup" language="2" type="0" using="log4net,System,System.Collections,System.Collections.Generic,System.Collections.Specialized,System.DirectoryServices,System.IO,System.Linq,System.Security.Principal,System.Web">
+        <ancestor name="object"></ancestor>
+        <field name="m_log"></field>
+        <field name="m_path"></field>
+        <property name="CN" info="String"></property>
+        <property name="DC" info="List&lt;String&gt;"></property>
+        <property name="Description" info="string"></property>
+        <property name="Email" info="List&lt;String&gt;"></property>
+        <property name="ErrorModifyLevel" info="ErrorLevel"></property>
+        <property name="OU" info="List&lt;String&gt;"></property>
+        <property name="Root" info="String"></property>
+        <method name="AddUser"></method>
+        <method name="AddUser"></method>
+        <method name="dumpFSP"></method>
+        <method name="getFSPGroup"></method>
+        <method name="GetGroupMembers"></method>
+        <method name="getUserLDAPSource"></method>
+        <method name="LDAPgroup"></method>
+        <method name="LDAPgroup"></method>
+        <method name="LDAPgroup"></method>
+        <method name="logMessage"></method>
+        <method name="RemoveUser"></method>
+        <method name="ToPath"></method>
+        <method name="ToString"></method>
+        <method name="UpdateDescription"></method>
+        <method name="UpdateDescription"></method>
+      </class>
+      <class name="LDAPRawObject" language="2" type="0" using="log4net,System,System.Collections.Generic,System.DirectoryServices,System.Linq,System.Text,System.Threading.Tasks,System.Web">
+        <field name="m_fields"></field>
+        <field name="m_log"></field>
+        <property name="ErrorModifyLevel" info="ErrorLevel"></property>
+        <property name="Fields" info="Dictionary&lt;String, object&gt;"></property>
+        <method name="LDAPRawObject"></method>
+        <method name="LDAPRawObject"></method>
+        <method name="logMessage"></method>
+        <method name="SetFields"></method>
+      </class>
+      <class name="LDAPuser" language="2" type="0" using="log4net,System,System.Collections.Generic,System.Collections.Specialized,System.DirectoryServices,System.Linq,System.Security.Principal,System.Web">
+        <field name="m_email"></field>
+        <field name="m_log"></field>
+        <field name="m_username"></field>
+        <property name="Department" info="String"></property>
+        <property name="Disabled" info="bool"></property>
+        <property name="Domain" info="String"></property>
+        <property name="Email" info="string"></property>
+        <property name="Enabled" info="bool"></property>
+        <property name="ErrorModifyLevel" info="ErrorLevel"></property>
+        <property name="FirstName" info="string"></property>
+        <property name="FullName" info="string"></property>
+        <property name="Groups" info="List&lt;LDAPgroup&gt;"></property>
+        <property name="LastName" info="string"></property>
+        <property name="OtherEmails" info="StringCollection"></property>
+        <property name="Password" info="string"></property>
+        <property name="PrincipalName" info="string"></property>
+        <property name="Title" info="string"></property>
+        <property name="UserDN" info="string"></property>
+        <property name="Username" info="string"></property>
+        <method name="GetSecurityIdentifier"></method>
+        <method name="GetSIDString"></method>
+        <method name="LDAPuser"></method>
+        <method name="logMessage"></method>
+        <method name="OwnsEmail"></method>
+      </class>
+      <class name="LogType" language="2" type="7" using="log4net,System,System.Collections,System.Collections.Generic,System.Collections.Specialized,System.DirectoryServices,System.IO,System.Linq,System.Web">
+        <field name="ERROR"></field>
+        <field name="INFO"></field>
+        <field name="WARN"></field>
+      </class>
+    </namespace>
+  </classinformation>
+</projectdatabase>
