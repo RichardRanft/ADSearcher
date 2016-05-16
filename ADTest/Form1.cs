@@ -33,8 +33,8 @@ namespace ADTest
         private void initADSearchDomains()
         {
             CDomainCredentials cred = new CDomainCredentials();
-            cred.Username = "admin-ldapqueries";
-            cred.Password = "d3rping110";
+            cred.Username = "USERNAME";
+            cred.Password = "PASSW0RD";
             CDomain wms = new CDomain();
             wms.Path = "LDAP://wms.com";
             wms.Credentials = cred;
