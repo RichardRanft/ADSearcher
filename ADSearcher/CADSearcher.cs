@@ -25,25 +25,10 @@ using log4net;
                cred.Username = "USERNAME";
                cred.Password = "PASSW0RD";
    
-               CDomain wms = new CDomain();
-               wms.Path = "LDAP://wms.com";
-               wms.Credentials = cred;
-               m_search.Domains.Add(wms);
-   
-               CDomain agi = new CDomain();
-               agi.Path = "LDAP://ad.agi";
-               agi.Credentials = new CDomainCredentials();
-               m_search.Domains.Add(agi);
-   
-               CDomain scigames = new CDomain();
-               scigames.Path = "LDAP://scientificgames.com";
-               scigames.Credentials = new CDomainCredentials();
-               m_search.Domains.Add(scigames);
-   
-               CDomain sga = new CDomain();
-               sga.Path = "LDAP://amer.scientificgames.com";
-               sga.Credentials = new CDomainCredentials();
-               m_search.Domains.Add(sga);                          */
+               CDomain mydom = new CDomain();
+               mydom.Path = "LDAP://mypath.com";
+               mydom.Credentials = cred;
+               m_search.Domains.Add(mydom); */
 namespace ADSearcher
 {
     /* \ \ 
@@ -62,8 +47,6 @@ namespace ADSearcher
         const int ADS_UF_ACCOUNTDISABLE = 0x00000002;
 
         private DomainDir.DomainListServiceSoapClient m_client01;
-        private DomainDir.DomainListServiceSoapClient m_client02;
-        private DomainDir.DomainListServiceSoapClient m_client03;
 
         public CADSearcher()
         {
@@ -77,9 +60,7 @@ namespace ADSearcher
 
         public bool InitializeFromDomainService()
         {
-            m_client01 = new DomainDir.DomainListServiceSoapClient("DomainListServiceSoap", "http://scmweb01.ad.agi/domaindirectory/domainlist.asmx");
-            m_client02 = new DomainDir.DomainListServiceSoapClient("DomainListServiceSoap", "http://scmweb02.ad.agi/domaindirectory/domainlist.asmx");
-            m_client03 = new DomainDir.DomainListServiceSoapClient("DomainListServiceSoap", "http://scmweb03.engscm.ad.agi/domaindirectory/domainlist.asmx");
+            m_client01 = new DomainDir.DomainListServiceSoapClient("DomainListServiceSoap", "http://myserver.ad.agi/domaindirectory/domainlist.asmx");
 
             String domainDir = m_client01.GetDomainDirectory();
             parseDomainEntries(domainDir);
