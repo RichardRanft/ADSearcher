@@ -97,10 +97,35 @@
             this.tbQueryText = new System.Windows.Forms.TextBox();
             this.btnRunQuery = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.button15 = new System.Windows.Forms.Button();
+            this.button16 = new System.Windows.Forms.Button();
+            this.label26 = new System.Windows.Forms.Label();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.button17 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.listBox11 = new System.Windows.Forms.ListBox();
             this.listBox10 = new System.Windows.Forms.ListBox();
             this.button8 = new System.Windows.Forms.Button();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.tbxResSID = new System.Windows.Forms.TextBox();
+            this.btnResolveSID = new System.Windows.Forms.Button();
+            this.lbxMbrList = new System.Windows.Forms.ListBox();
+            this.button12 = new System.Windows.Forms.Button();
+            this.lbxGrpSrchRes = new System.Windows.Forms.ListBox();
+            this.btnFindGrpByName = new System.Windows.Forms.Button();
+            this.label24 = new System.Windows.Forms.Label();
+            this.tbxFindGroupName = new System.Windows.Forms.TextBox();
+            this.btnGetSID = new System.Windows.Forms.Button();
+            this.lblSID = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -110,6 +135,10 @@
             this.tabPage4.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.tabPage6.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -127,7 +156,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(247, 20);
             this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "WMS\\PTrotter";
             // 
             // listBox1
             // 
@@ -255,6 +283,7 @@
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Location = new System.Drawing.Point(10, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -263,6 +292,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.lblSID);
+            this.tabPage1.Controls.Add(this.btnGetSID);
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(this.button10);
             this.tabPage1.Controls.Add(this.label1);
@@ -800,6 +831,16 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.groupBox2);
+            this.tabPage5.Controls.Add(this.label25);
+            this.tabPage5.Controls.Add(this.textBox8);
+            this.tabPage5.Controls.Add(this.button15);
+            this.tabPage5.Controls.Add(this.button16);
+            this.tabPage5.Controls.Add(this.label26);
+            this.tabPage5.Controls.Add(this.textBox9);
+            this.tabPage5.Controls.Add(this.label27);
+            this.tabPage5.Controls.Add(this.textBox10);
+            this.tabPage5.Controls.Add(this.button17);
             this.tabPage5.Controls.Add(this.button9);
             this.tabPage5.Controls.Add(this.listBox11);
             this.tabPage5.Controls.Add(this.listBox10);
@@ -811,6 +852,137 @@
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Security Group Members";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label22);
+            this.groupBox2.Controls.Add(this.pictureBox1);
+            this.groupBox2.Controls.Add(this.label23);
+            this.groupBox2.Controls.Add(this.pictureBox2);
+            this.groupBox2.Location = new System.Drawing.Point(266, 511);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(140, 65);
+            this.groupBox2.TabIndex = 25;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "User Account Status";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(6, 39);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(99, 13);
+            this.label22.TabIndex = 19;
+            this.label22.Text = "LDAPuser.Disabled";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ADTest.Properties.Resources.status_up;
+            this.pictureBox1.Location = new System.Drawing.Point(108, 36);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(21, 21);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 18;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(6, 16);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(97, 13);
+            this.label23.TabIndex = 17;
+            this.label23.Text = "LDAPuser.Enabled";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::ADTest.Properties.Resources.status_up;
+            this.pictureBox2.Location = new System.Drawing.Point(108, 13);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(21, 21);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 16;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(210, 579);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(53, 13);
+            this.label25.TabIndex = 21;
+            this.label25.Text = "Password";
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(209, 595);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(197, 20);
+            this.textBox8.TabIndex = 22;
+            this.textBox8.Text = "Aug0105";
+            this.textBox8.UseSystemPasswordChar = true;
+            // 
+            // button15
+            // 
+            this.button15.Location = new System.Drawing.Point(545, 593);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(127, 23);
+            this.button15.TabIndex = 24;
+            this.button15.Text = "Leave Group";
+            this.button15.UseVisualStyleBackColor = true;
+            // 
+            // button16
+            // 
+            this.button16.Location = new System.Drawing.Point(412, 593);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(127, 23);
+            this.button16.TabIndex = 23;
+            this.button16.Text = "Join Group";
+            this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(7, 579);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(87, 13);
+            this.label26.TabIndex = 19;
+            this.label26.Text = "Admin Username";
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(6, 595);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(197, 20);
+            this.textBox9.TabIndex = 20;
+            this.textBox9.Text = "Eng_Autobuild";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(6, 511);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(112, 13);
+            this.label27.TabIndex = 16;
+            this.label27.Text = "Username (mjohnson):";
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(6, 527);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(247, 20);
+            this.textBox10.TabIndex = 17;
+            // 
+            // button17
+            // 
+            this.button17.Location = new System.Drawing.Point(6, 553);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(159, 23);
+            this.button17.TabIndex = 18;
+            this.button17.Text = "get user information";
+            this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
             // 
             // button9
             // 
@@ -853,6 +1025,113 @@
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
+            // tabPage6
+            // 
+            this.tabPage6.Controls.Add(this.tbxResSID);
+            this.tabPage6.Controls.Add(this.btnResolveSID);
+            this.tabPage6.Controls.Add(this.lbxMbrList);
+            this.tabPage6.Controls.Add(this.button12);
+            this.tabPage6.Controls.Add(this.lbxGrpSrchRes);
+            this.tabPage6.Controls.Add(this.btnFindGrpByName);
+            this.tabPage6.Controls.Add(this.label24);
+            this.tabPage6.Controls.Add(this.tbxFindGroupName);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(792, 682);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "Even More Group Stuff";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // tbxResSID
+            // 
+            this.tbxResSID.Location = new System.Drawing.Point(6, 360);
+            this.tbxResSID.Name = "tbxResSID";
+            this.tbxResSID.Size = new System.Drawing.Size(403, 20);
+            this.tbxResSID.TabIndex = 19;
+            // 
+            // btnResolveSID
+            // 
+            this.btnResolveSID.Location = new System.Drawing.Point(6, 331);
+            this.btnResolveSID.Name = "btnResolveSID";
+            this.btnResolveSID.Size = new System.Drawing.Size(75, 23);
+            this.btnResolveSID.TabIndex = 18;
+            this.btnResolveSID.Text = "Resolve SID";
+            this.btnResolveSID.UseVisualStyleBackColor = true;
+            this.btnResolveSID.Click += new System.EventHandler(this.btnResolveSID_Click);
+            // 
+            // lbxMbrList
+            // 
+            this.lbxMbrList.FormattingEnabled = true;
+            this.lbxMbrList.Location = new System.Drawing.Point(6, 217);
+            this.lbxMbrList.Name = "lbxMbrList";
+            this.lbxMbrList.Size = new System.Drawing.Size(403, 108);
+            this.lbxMbrList.TabIndex = 17;
+            // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(6, 188);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(89, 23);
+            this.button12.TabIndex = 16;
+            this.button12.Text = "Get Members";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
+            // 
+            // lbxGrpSrchRes
+            // 
+            this.lbxGrpSrchRes.FormattingEnabled = true;
+            this.lbxGrpSrchRes.Location = new System.Drawing.Point(6, 74);
+            this.lbxGrpSrchRes.Name = "lbxGrpSrchRes";
+            this.lbxGrpSrchRes.Size = new System.Drawing.Size(403, 108);
+            this.lbxGrpSrchRes.TabIndex = 15;
+            // 
+            // btnFindGrpByName
+            // 
+            this.btnFindGrpByName.Location = new System.Drawing.Point(6, 45);
+            this.btnFindGrpByName.Name = "btnFindGrpByName";
+            this.btnFindGrpByName.Size = new System.Drawing.Size(89, 23);
+            this.btnFindGrpByName.TabIndex = 14;
+            this.btnFindGrpByName.Text = "Find Group";
+            this.btnFindGrpByName.UseVisualStyleBackColor = true;
+            this.btnFindGrpByName.Click += new System.EventHandler(this.btnFindGrpByName_Click);
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(6, 3);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(67, 13);
+            this.label24.TabIndex = 13;
+            this.label24.Text = "Group Name";
+            // 
+            // tbxFindGroupName
+            // 
+            this.tbxFindGroupName.Location = new System.Drawing.Point(6, 19);
+            this.tbxFindGroupName.Name = "tbxFindGroupName";
+            this.tbxFindGroupName.Size = new System.Drawing.Size(403, 20);
+            this.tbxFindGroupName.TabIndex = 12;
+            // 
+            // btnGetSID
+            // 
+            this.btnGetSID.Enabled = false;
+            this.btnGetSID.Location = new System.Drawing.Point(514, 7);
+            this.btnGetSID.Name = "btnGetSID";
+            this.btnGetSID.Size = new System.Drawing.Size(75, 23);
+            this.btnGetSID.TabIndex = 18;
+            this.btnGetSID.Text = "Get SID";
+            this.btnGetSID.UseVisualStyleBackColor = true;
+            this.btnGetSID.Click += new System.EventHandler(this.btnGetSID_Click);
+            // 
+            // lblSID
+            // 
+            this.lblSID.AutoSize = true;
+            this.lblSID.Location = new System.Drawing.Point(511, 33);
+            this.lblSID.Name = "lblSID";
+            this.lblSID.Size = new System.Drawing.Size(62, 13);
+            this.lblSID.TabIndex = 19;
+            this.lblSID.Text = "<User SID>";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -875,6 +1154,13 @@
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -954,6 +1240,31 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.PictureBox pbxUserDisabled;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.ListBox lbxMbrList;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.ListBox lbxGrpSrchRes;
+        private System.Windows.Forms.Button btnFindGrpByName;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TextBox tbxFindGroupName;
+        private System.Windows.Forms.TextBox tbxResSID;
+        private System.Windows.Forms.Button btnResolveSID;
+        private System.Windows.Forms.Label lblSID;
+        private System.Windows.Forms.Button btnGetSID;
     }
 }
 

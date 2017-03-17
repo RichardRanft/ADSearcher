@@ -11068,7 +11068,7 @@ HTMLFileExtension=.html
 HTMLFilenaming=0
 HTMLFileTemplate=
 InsertCustomHEADCode=0
-OutputDir=z:\DevToolDocs\CADSearcherDocs
+OutputDir=Q:\DevToolDocs\CADSearcherDocs
 OutputOptions=7
 OutputTOCLevels=0
 OutputXHTML=1
@@ -26255,14 +26255,13 @@ ID9=9
 SavedValues=1
 
 [Source Files]
-Count=7
+Count=6
 File0=CADSearcher.cs
-File1=CDomain.cs
-File2=documentation\ADSearcher.dtx
-File3=documentation\CADSearcher_GetUserDisabled.dtx
-File4=LDAPgroup.cs
-File5=LDAPRawObject.cs
-File6=LDAPuser.cs
+File1=documentation\ADSearcher.dtx
+File2=documentation\CADSearcher_GetUserDisabled.dtx
+File3=LDAPgroup.cs
+File4=LDAPRawObject.cs
+File5=LDAPuser.cs
 
 [Source Include Directories]
 Count=0

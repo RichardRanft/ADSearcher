@@ -16,6 +16,9 @@ namespace ADSearcher
     public class LDAPuser
     {
         private static ILog m_log = LogManager.GetLogger(typeof(LDAPuser));
+        /* Description
+           This field can be used to limit error and warning logging to
+           information status. See the ErrorLevel enumeration.          */
         public ErrorLevel ErrorModifyLevel { get; set; }
 
         public LDAPuser()
@@ -23,8 +26,39 @@ namespace ADSearcher
             ErrorModifyLevel = ErrorLevel.ALL;
         }
 
+        public LDAPuser(String userEntry)
+        {
+            m_path = userEntry;
+            Root = userEntry.Substring(0, userEntry.LastIndexOf('/'));
+            CN = new List<string>();
+            OU = new List<string>();
+            DC = new List<string>();
+            Properties = new List<KeyValuePair<string, string>>();
+            String tempEntry = userEntry.Remove(0, userEntry.LastIndexOf('/') + 1);
+            tempEntry = tempEntry.Replace("\\,", "|");
+            String[] parts = tempEntry.Split(',');
+            foreach (String part in parts)
+            {
+                if (part.Contains("CN="))
+                    CN.Add(part.Replace("|", "\\,"));
+                if (part.Contains("OU="))
+                    OU.Add(part);
+                if (part.Contains("DC="))
+                    DC.Add(part);
+            }
+
+            ErrorModifyLevel = ErrorLevel.ALL;
+        }
+
         private string m_username;
         private string m_email;
+        private string m_path;
+
+        public String Root;
+        public List<string> OU;
+        public List<string> DC;
+        public List<string> CN;
+        public List<KeyValuePair<string, string>> Properties;
         /* \ \ 
            Description
            The user's Active Directory user name. */
@@ -40,6 +74,9 @@ namespace ADSearcher
            Description
            The user's Active Directory full name entry. */
         public string FullName { get; set; }
+        /* \ \ 
+           Description
+           The user's Active Directory User Principal Name. */
         public string PrincipalName { get; set; }
         /* \ \ 
            Description
@@ -74,10 +111,20 @@ namespace ADSearcher
            addresses listed in Active Directory.                         */
         public StringCollection OtherEmails { get; set; }
 
+        /* \ \ 
+           Description
+           The domain that the user belongs to. */
         public String Domain { get; set; }
 
+        /* \ \ 
+           Description
+           The user's "Enabled" status in Active Directory - is true if
+           the user is "Enabled."                                       */
         public bool Enabled { get; set; }
 
+        /* \ \ 
+           Description
+           The user's department attribute. */
         public String Department { get; set; }
 
         public SecurityIdentifier GetSecurityIdentifier()
@@ -135,6 +182,10 @@ namespace ADSearcher
             }
         }
 
+        /* \ \ 
+           Description
+           The user's "Enabled" status in Active Directory. This is true
+           if the user is NOT "Enabled."                                 */
         public bool Disabled { get; set; }
 
         public bool OwnsEmail(string email)

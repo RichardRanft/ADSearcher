@@ -19,6 +19,10 @@ namespace ADSearcher
     public class LDAPgroup : object
     {
         private String m_path;
+        /* \ \ 
+           Description
+           This field can be used to limit error and warning logging to
+           information status. See the ErrorLevel enumeration.          */
         public ErrorLevel ErrorModifyLevel { get; set; }
         private static ILog m_log = LogManager.GetLogger(typeof(LDAPgroup));
 
@@ -47,6 +51,10 @@ namespace ADSearcher
            This is the group description. */
         public string Description { get; set; }
 
+        /* \ \ 
+           Description
+           A list of email addresses that route to members of this
+           group.                                                  */
         public List<String> Email { get; set; }
 
         /* \ \ 
@@ -176,6 +184,7 @@ namespace ADSearcher
         public bool AddUser(LDAPuser user)
         {
             String groupname = "";
+            bool success = true;
             try
             {
                 String path = getUserLDAPSource(user);
@@ -195,6 +204,14 @@ namespace ADSearcher
                 else
                 {
                     userPath = "<SID=" + sidStr + ">";
+                    foreach (String entry in group.Properties["member"])
+                    {
+                        // for some reason, system will re-add Foreign Security Principals to groups
+                        // without throwing an exception, so let's just catch that case here and
+                        // return false if we find them in here.
+                        if (containsUser(group, user, sidStr))
+                            return false;
+                    }
                     group.Properties["member"].Add(userPath);
                 }
 
@@ -203,10 +220,44 @@ namespace ADSearcher
             }
             catch (Exception ex)
             {
-                m_log.Error("AddUser: ", ex);
-                Exception except = new Exception("AddUser() failed: " + user.Username + " to " + groupname, ex.InnerException);
-                throw except;
+                if (ex.Message.Contains("no such object on the server"))
+                {
+                    success = false;
+                }
+                else
+                {
+                    m_log.Info("AddUser(user, userName, password): ", ex);
+                    Exception except = new Exception("AddUser() failed: " + user.Username + " to " + groupname, ex);
+                    throw except;
+                }
             }
+            if (!success)
+            {
+                try
+                {
+                    String path = getUserLDAPSource(user);
+                    DirectoryEntry group = new DirectoryEntry(m_path);
+                    groupname = group.Name;
+                    String userPath = "";
+                    userPath = path + "/" + user.UserDN;
+                    foreach (String entry in group.Properties["member"])
+                    {
+                        if (entry.Contains(user.UserDN))
+                            return false;
+                    }
+                    group.Invoke("Add", new object[] { userPath });
+
+                    group.CommitChanges();
+                    return true;
+                }
+                catch (Exception nEx)
+                {
+                    m_log.Info("AddUser(user, userName, password): ", nEx);
+                    Exception except = new Exception("AddUser() failed: " + user.Username + " to " + groupname, nEx);
+                    throw except;
+                }
+            }
+            return success;
         }
 
         /* \ \ 
@@ -226,6 +277,7 @@ namespace ADSearcher
         public bool AddUser(LDAPuser user, String userName, String password)
         {
             String groupname = "";
+            bool success = true;
             try
             {
                 String path = getUserLDAPSource(user);
@@ -242,23 +294,72 @@ namespace ADSearcher
                 if (String.IsNullOrEmpty(sidStr))
                 {
                     userPath = path + "/" + user.UserDN;
+                    foreach (String entry in group.Properties["member"])
+                    {
+                        if (entry.Contains(user.UserDN))
+                            return false;
+                    }
                     group.Invoke("Add", new object[] { userPath });
                 }
                 else
                 {
                     userPath = "<SID=" + sidStr + ">";
+                    foreach(String entry in group.Properties["member"])
+                    {
+                        // for some reason, system will re-add Foreign Security Principals to groups
+                        // without throwing an exception, so let's just catch that case here and
+                        // return false if we find them in here.
+                        if (containsUser(group, user, sidStr))
+                            return false;
+                    }
                     group.Properties["member"].Add(userPath);
                 }
 
                 group.CommitChanges();
-                return true;
+                return success;
             }
             catch (Exception ex)
             {
-                m_log.Error("AddUser(user, userName, password): ", ex);
-                Exception except = new Exception("AddUser() failed: " + user.Username + " to " + groupname, ex.InnerException);
-                throw except;
+                if (ex.Message.Contains("no such object on the server"))
+                {
+                    success = false;
+                }
+                else
+                {
+                    m_log.Info("AddUser(user, userName, password): ", ex);
+                    Exception except = new Exception("AddUser() failed: " + user.Username + " to " + groupname, ex);
+                    throw except;
+                }
             }
+            if (!success)
+            {
+                try
+                {
+                    String path = getUserLDAPSource(user);
+                    DirectoryEntry group = new DirectoryEntry(m_path);
+                    groupname = group.Name;
+                    group.Username = userName;
+                    group.Password = password;
+                    String userPath = "";
+                    userPath = path + "/" + user.UserDN;
+                    foreach (String entry in group.Properties["member"])
+                    {
+                        if (entry.Contains(user.UserDN))
+                            return false;
+                    }
+                    group.Invoke("Add", new object[] { userPath });
+
+                    group.CommitChanges();
+                    return true;
+                }
+                catch (Exception nEx)
+                {
+                    m_log.Info("AddUser(user, userName, password): ", nEx);
+                    Exception except = new Exception("AddUser() failed: " + user.Username + " to " + groupname, nEx);
+                    throw except;
+                }
+            }
+            return success;
         }
 
         private void dumpFSP(DirectoryEntry fsp)
@@ -298,9 +399,9 @@ namespace ADSearcher
                     userPath = "<SID=" + sidStr + ">";
                 if (group != null)
                 {
-                    if (group.Properties["member"].Contains(user.UserDN) || group.Properties["member"].Contains(sidStr))
+                    if (containsUser(group, user, sidStr))
                     {
-                        group.Invoke("remove", new object[] { userPath });
+                        group.Invoke("Remove", new object[] { path + "/" + user.UserDN });
                         group.CommitChanges();
                     }
                 }
@@ -311,6 +412,18 @@ namespace ADSearcher
                 Exception except = new Exception("RemoveUser() failed: " + user.Username + " to " + groupname, ex);
                 throw except;
             }
+        }
+
+        private bool containsUser(DirectoryEntry group, LDAPuser user, String sid = "")
+        {
+            foreach (String member in group.Properties["member"]) 
+            {
+                if (member.Contains(user.UserDN))
+                    return true;
+                if (!String.IsNullOrEmpty(sid) && member.Contains(sid))
+                    return true;
+            }
+            return false;
         }
 
         /* \ \ 

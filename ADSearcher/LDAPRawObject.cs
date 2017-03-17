@@ -47,6 +47,7 @@ namespace ADSearcher
            with the values of the provided SearchResult object.          */
         public LDAPRawObject(SearchResult res)
         {
+            ErrorModifyLevel = ErrorLevel.ALL;
             m_fields = new Dictionary<String, object>(); 
             DirectoryEntry de = res.GetDirectoryEntry();
             var obj = res.GetDirectoryEntry().Properties;

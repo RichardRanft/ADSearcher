@@ -38,12 +38,44 @@ namespace ADSearcher
     public class CADSearcher
     {
         private static ILog m_log = LogManager.GetLogger(typeof(CADSearcher));
+        /* \ \ 
+           Description
+           Setting the Dump flag will cause some methods to dump a full
+           list of properties when retrieving their respective Active
+           Directory objects.                                           */
         public bool Dump { get; set; }
+        /* \ \ 
+           Description
+           If this is set, the internal dumpValues() method will only
+           dump field names, not the actual values of the retrieved
+           fields.                                                    */
         public bool FieldsOnly { get; set; }
+        /* \ \ 
+           Description
+           If this flag is set, only properties in the Properties list
+           are requested from Active Directory.                        */
         public bool LimitProperties { get; set; }
+        /* \ \ 
+           Description
+           Setting this flag will allow empty entries in retrieved data.
+           Remember to check for null or empty strings before using data
+           fields if this flag is set.                                   */
         public bool AllowIncompleteUserdata { get; set; }
+        /* \ \ 
+           Description
+           This field can be used to limit error and warning logging to
+           information status. See the ErrorLevel enumeration.          */
         public ErrorLevel ErrorModifyLevel { get; set; }
+        /* \ \ 
+           Description
+           This is a List\<CDomain\> of domains that are accessible to
+           the CADSearcher object.                                     */
         public List<CDomain> Domains;
+        /* \ \ 
+           Description
+           This is a List\<string\> of property names that will be
+           collected for users during searches.                    */
+        public List<String> Properties;
         const int ADS_UF_ACCOUNTDISABLE = 0x00000002;
 
         private DomainDir.DomainListServiceSoapClient m_client01;
@@ -56,8 +88,28 @@ namespace ADSearcher
             AllowIncompleteUserdata = false;
             ErrorModifyLevel = ErrorLevel.ALL;
             Domains = new List<CDomain>();
+
+            Properties = new List<string>();
+            Properties.Add("proxyaddresses");
+            Properties.Add("mail");
+            Properties.Add("surname");
+            Properties.Add("displayName");
+            Properties.Add("userprincipalname");
+            Properties.Add("description");
+            Properties.Add("memberOf");
+            Properties.Add("members");
+            Properties.Add("anr");
+            Properties.Add("enabled");
+            Properties.Add("department");
+            Properties.Add("title");
+            Properties.Add("samaccountname");
         }
 
+        /* Summary
+           This method connects to the DomainDirectory service and gets
+           a list of current domain paths and credential information,
+           then constructs the CADSearcher object's domain list from
+           this data.                                                   */
         public bool InitializeFromDomainService()
         {
             m_client01 = new DomainDir.DomainListServiceSoapClient("DomainListServiceSoap", "http://myserver.ad.agi/domaindirectory/domainlist.asmx");
@@ -72,6 +124,12 @@ namespace ADSearcher
             return true;
         }
 
+        /* \ \ 
+           Summary
+           Utility method that parses the values passed back from the
+           DomainDirectory service into CDomain object entries.
+           Parameters
+           data :  The string received from the DomainDirectory service. */
         private void parseDomainEntries(String data)
         {
             String[] domainEntries = data.Split(';');
@@ -91,6 +149,8 @@ namespace ADSearcher
                     if (!String.IsNullOrEmpty(parts[2]))
                         dom.Credentials.Password = parts[2];
                 }
+                if (parts.Length > 3)
+                    dom.Name = parts[3];
                 bool found = false;
                 foreach (CDomain d in Domains)
                 {
@@ -283,13 +343,17 @@ namespace ADSearcher
            matching the search criteria.                                                       */
         public List<LDAPuser> SearchADUsingLDAPQuery(string query, bool allowIncomplete = false)
         {
+            allowIncomplete = AllowIncompleteUserdata;
             query = "(&(&(objectCategory=person)(objectClass=user))" + query + ")";
             List<LDAPuser> ldapUsers = new List<LDAPuser>();
 
             try
             {
+                bool found = false;
                 foreach (CDomain domain in Domains)
                 {
+                    if (found)
+                        break;
                     DirectoryEntry de = new DirectoryEntry(domain.Path);
                     if (!String.IsNullOrEmpty(domain.Credentials.Username))
                     {
@@ -299,23 +363,17 @@ namespace ADSearcher
                     DirectorySearcher ds = new DirectorySearcher(de);
                     if (LimitProperties)
                     {
-                        ds.PropertiesToLoad.Add("proxyaddresses");
-                        ds.PropertiesToLoad.Add("mail");
-                        ds.PropertiesToLoad.Add("surname");
-                        ds.PropertiesToLoad.Add("displayName");
-                        ds.PropertiesToLoad.Add("userprincipalname");
-                        ds.PropertiesToLoad.Add("description");
-                        ds.PropertiesToLoad.Add("memberOf");
-                        ds.PropertiesToLoad.Add("anr");
-                        ds.PropertiesToLoad.Add("enabled");
-                        ds.PropertiesToLoad.Add("department");
-                        ds.PropertiesToLoad.Add("title");
+                        foreach(String property in Properties)
+                            ds.PropertiesToLoad.Add(property);
                     }
                     ds.Filter = query;
                     SearchResult rs = ds.FindOne();
 
                     if (rs != null)
+                    {
+                        found = true;
                         ldapUsers.Add(getLDAPUserFromSearch(rs, allowIncomplete));
+                    }
                 }
             }
             catch (Exception e)
@@ -326,77 +384,167 @@ namespace ADSearcher
             return ldapUsers;
         }
 
-                /* \ \ 
-                   Summary
-                   Searches the Active Directory using
-                   "(&amp;(&amp;(objectCategory=person)(objectClass=user))(samaccountname="
-                   \+ username + "))" as the base query string and sets the
-                   Active Directory root to one of the following values based on
-                   the domain passed in:
+        /* \ \ 
+            Summary
+            Searches the Active Directory using
+            "(&amp;(&amp;(objectCategory=person)(objectClass=user))(samaccountname="
+            \+ username + "))" as the base query string and sets the
+            Active Directory root to one of the following values based on
+            the domain passed in:
                    
-                   <code lang="c#">
-                   if (domain.ToLower().Equals("agi"))
-                      domain = "ad." + domain;
-                   if (domain.ToLower().Equals("wms"))
-                      domain = domain + ".com";
-                   if (domain.ToLower().Equals("scientificgames"))
-                      domain = domain + ".com";
-                   </code>
+            <code lang="c#">
+            if (domain.ToLower().Equals("agi"))
+                domain = "ad." + domain;
+            if (domain.ToLower().Equals("wms"))
+                domain = domain + ".com";
+            if (domain.ToLower().Equals("scientificgames"))
+                domain = domain + ".com";
+            </code>
                    
-                   See <extlink https://msdn.microsoft.com/en-us/library/aa746475(v=vs.85).aspx>Search
-                   Filter Syntax</extlink> on msdn.microsoft.com.
-                   Parameters
-                   username :  The username of the user to retrieve (jdoe)
-                   domain :    The domain id (AGI, WMS or scientificgames at the
-                               moment) stripped from
-                               HttpContext.Current.User.Identity.Name.ToString().
+            See <extlink https://msdn.microsoft.com/en-us/library/aa746475(v=vs.85).aspx>Search
+            Filter Syntax</extlink> on msdn.microsoft.com.
+            Parameters
+            username :  The username of the user to retrieve (jdoe)
+            domain :    A CDomain object containing data for the the domain to search in.
                    
-                   Returns
-                   A List\<<link ADSearcher.LDAPuser, LDAPuser>\> of users
-                   matching the search criteria.                                                       */
-        public List<LDAPuser> SearchADUsingLDAPQuery(string username, string domain, bool allowIncomplete = false)
+            Returns
+            A List\<<link ADSearcher.LDAPuser, LDAPuser>\> of users
+            matching the search criteria.                                                       */
+        public List<LDAPuser> SearchADUsingLDAPQuery(string userQuery, CDomain domain, bool allowIncomplete = false)
         {
-            string query = "(&(&(objectCategory=person)(objectClass=user))(samaccountname=" + username + "))";
+            allowIncomplete = AllowIncompleteUserdata;
+            string query = "(&(&(objectCategory=person)(objectClass=user))" + userQuery + ")";
             List<LDAPuser> ldapUsers = new List<LDAPuser>();
 
             try
             {
-                foreach (CDomain dom in Domains)
+                DirectoryEntry de = new DirectoryEntry(domain.Path);
+                if (domain.Credentials != null && !String.IsNullOrEmpty(domain.Credentials.Username))
                 {
-                    DirectoryEntry de = new DirectoryEntry(dom.Path);
-                    if(!String.IsNullOrEmpty(dom.Credentials.Username))
-                    {
-                        de.Username = dom.Credentials.Username;
-                        de.Password = dom.Credentials.Password;
-                    }
-                    DirectorySearcher ds = new DirectorySearcher(de);
-
-                    if (LimitProperties)
-                    {
-                        ds.PropertiesToLoad.Add("proxyaddresses");
-                        ds.PropertiesToLoad.Add("mail");
-                        ds.PropertiesToLoad.Add("surname");
-                        ds.PropertiesToLoad.Add("displayName");
-                        ds.PropertiesToLoad.Add("userprincipalname");
-                        ds.PropertiesToLoad.Add("description");
-                        ds.PropertiesToLoad.Add("memberOf");
-                        ds.PropertiesToLoad.Add("membership");
-                        ds.PropertiesToLoad.Add("anr");
-                        ds.PropertiesToLoad.Add("enabled");
-                        ds.PropertiesToLoad.Add("department");
-                        ds.PropertiesToLoad.Add("title");
-                    }
-                    ds.Filter = query;
-                    SearchResult rs = ds.FindOne();
-
-                    if (rs != null)
-                        ldapUsers.Add(getLDAPUserFromSearch(rs, allowIncomplete));
+                    de.Username = domain.Credentials.Username;
+                    de.Password = domain.Credentials.Password;
                 }
+                DirectorySearcher ds = new DirectorySearcher(de);
+
+                if (LimitProperties)
+                {
+                    foreach (String property in Properties)
+                        ds.PropertiesToLoad.Add(property);
+                }
+                ds.Filter = query;
+                SearchResult rs = ds.FindOne();
+
+                if (rs != null)
+                    ldapUsers.Add(getLDAPUserFromSearch(rs, allowIncomplete));
             }
             catch (Exception e)
             {
                 logMessage(LogType.ERROR, "Could not find user by query " + query, e);
                 throw e;
+            }
+
+            return ldapUsers;
+        }
+
+        /* \ \ 
+           Summary
+           This search method is used by SearchAGIADForContactUsingSID()
+           to retrieve truncated user information. If more detailed
+           information is necessary, this information can be used to
+           feed a deeper query.
+           Parameters
+           userQuery :  Active Directory query text \- this is inserted
+                        into
+                        "(&amp;(&amp;(objectCategory=person)(objectClass=user))"
+                        <b>userQuery </b>")"
+           domain :     A CDomain object representing the desired search
+                        domain.
+           Returns
+           A List\<LDAPuser\> that matches the query.                            */
+        public List<LDAPuser> SearchForUser(string userQuery, CDomain domain)
+        {
+            string query = "(&(&(objectCategory=person)(objectClass=user))" + userQuery + ")";
+            List<LDAPuser> ldapUsers = new List<LDAPuser>();
+
+            try
+            {
+                DirectoryEntry de = new DirectoryEntry(domain.Path);
+                if (!String.IsNullOrEmpty(domain.Credentials.Username))
+                {
+                    de.Username = domain.Credentials.Username;
+                    de.Password = domain.Credentials.Password;
+                }
+                DirectorySearcher ds = new DirectorySearcher(de);
+
+                if (LimitProperties)
+                {
+                    foreach (String property in Properties)
+                        ds.PropertiesToLoad.Add(property);
+                }
+                ds.Filter = query;
+                SearchResult rs = ds.FindOne();
+
+                if (rs != null)
+                    ldapUsers.Add(getLDAPUserProps(rs));
+            }
+            catch (Exception e)
+            {
+                logMessage(LogType.ERROR, "Could not find user by query " + query, e);
+                throw e;
+            }
+
+            return ldapUsers;
+        }
+
+        /* \ \ 
+           Summary
+           This search method is used by SearchAGIADForContactUsingSID()
+           to retrieve truncated user information. If more detailed
+           information is necessary, this information can be used to
+           feed a deeper query.
+           Parameters
+           query :  Active Directory query text \- this is inserted into
+                    "(&amp;(&amp;(objectCategory=person)(objectClass=user))"
+                    <b>query</b> ")"
+           Returns
+           A List\<LDAPuser\> that matches the query.                        */
+        public List<LDAPuser> SearchForUser(string query)
+        {
+            query = "(&(&(objectCategory=person)(objectClass=user))" + query + ")";
+            List<LDAPuser> ldapUsers = new List<LDAPuser>();
+
+            try
+            {
+                bool found = false;
+                foreach (CDomain domain in Domains)
+                {
+                    if (found)
+                        break;
+                    DirectoryEntry de = new DirectoryEntry(domain.Path);
+                    if (!String.IsNullOrEmpty(domain.Credentials.Username))
+                    {
+                        de.Username = domain.Credentials.Username;
+                        de.Password = domain.Credentials.Password;
+                    }
+                    DirectorySearcher ds = new DirectorySearcher(de);
+                    if (LimitProperties)
+                    {
+                        foreach (String property in Properties)
+                            ds.PropertiesToLoad.Add(property);
+                    }
+                    ds.Filter = query;
+                    SearchResult rs = ds.FindOne();
+
+                    if (rs != null)
+                    {
+                        found = true;
+                        ldapUsers.Add(getLDAPUserProps(rs));
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                logMessage(LogType.ERROR, "Could not find user by query " + query, e);
             }
 
             return ldapUsers;
@@ -433,8 +581,9 @@ namespace ADSearcher
            containing the user data in the provided SearchResult object. */
         private LDAPuser getLDAPUserFromSearch(SearchResult rs, bool allowIncomplete = false)
         {
-            LDAPuser ldapUser = new LDAPuser();
+            allowIncomplete = AllowIncompleteUserdata;
             DirectoryEntry de = rs.GetDirectoryEntry();
+            LDAPuser ldapUser = new LDAPuser(rs.Path);
 
             String[] domparts = de.Path.Split('/');
             foreach(String part in domparts)
@@ -447,6 +596,18 @@ namespace ADSearcher
             
             var user = rs.GetDirectoryEntry().Properties;
             ldapUser.Domain = domparts[0] + "//" + domparts[2];
+
+            foreach (String prop in user.PropertyNames)
+            {
+                for (int i = 0; i < user[prop].Count; i++)
+                {
+                    String propType = user[prop][i].GetType().ToString();
+                    String propStr = user[prop][i].ToString();
+                    if (propStr.CompareTo(propType) != 0)
+                        ldapUser.Properties.Add(new KeyValuePair<string, string>(prop, user[prop][i].ToString()));
+                }
+            }
+            
             if (user["samaccountname"].Value != null)
                 ldapUser.Username = user["samaccountname"].Value.ToString().ToLower();
             else if (user["anr"].Value != null)
@@ -582,19 +743,20 @@ namespace ADSearcher
             return ldapUser;
         }
 
-        /* \ \ 
-         Summary
-         This private method constructs a LDAPuser object from a
-         provided SearchResult object.
-         Parameters
-         rs :  A SearchResult from an Active Directory query.
-         Returns
-         A constructed <link ADSearcher.LDAPuser, LDAPuser> object
-         containing the user data in the provided SearchResult object. */
-        private LDAPuser getLDAPContactFromSearchResult(SearchResult rs)
+        /* Summary
+           Gets a "brief" version of the user's information. Used with
+           SearchAGIADForContactUsingSID() to speed information
+           retrieval.
+           Parameters
+           rs :  An Active Directory search result object.
+           
+           Returns
+           A single LDAPuser object containing the retrieved field
+           information.                                                */
+        private LDAPuser getLDAPUserProps(SearchResult rs)
         {
-            LDAPuser ldapUser = new LDAPuser();
             DirectoryEntry de = rs.GetDirectoryEntry();
+            LDAPuser ldapUser = new LDAPuser(rs.Path);
 
             String[] domparts = de.Path.Split('/');
             foreach (String part in domparts)
@@ -607,7 +769,115 @@ namespace ADSearcher
 
             var user = rs.GetDirectoryEntry().Properties;
             ldapUser.Domain = domparts[0] + "//" + domparts[2];
-          
+
+            if (user["samaccountname"].Value != null)
+                ldapUser.Username = user["samaccountname"].Value.ToString().ToLower();
+            else if (user["anr"].Value != null)
+                ldapUser.Username = user["anr"].Value.ToString().ToLower();
+            else
+                ldapUser.Username = "";
+
+            if (user["sn"].Value != null)
+                ldapUser.LastName = user["sn"].Value.ToString();
+            else
+                ldapUser.LastName = "";
+
+            if (user["mail"].Value != null)
+                ldapUser.Email = user["mail"].Value.ToString().ToLower();
+            else
+                ldapUser.Email = "";
+
+            if (user["proxyaddresses"].Value != null)
+            {
+                ldapUser.OtherEmails = new StringCollection();
+                foreach (string address in user["proxyaddresses"])
+                {
+                    if (address.StartsWith("smtp:"))
+                    {
+                        string otherEmail = address.Substring(5).ToLower();
+                        ldapUser.OtherEmails.Add(otherEmail);
+                    }
+                }
+            }
+
+            if (user["displayName"].Value != null)
+                ldapUser.FullName = user["displayName"].Value.ToString();
+            else
+                ldapUser.FullName = "";
+
+            if (user["userprincipalname"].Value != null)
+                ldapUser.PrincipalName = user["userprincipalname"].Value.ToString();
+            else
+                ldapUser.PrincipalName = "";
+
+            if (user["description"].Value != null)
+                ldapUser.Title = user["description"].Value.ToString();
+            else if (user["title"].Value != null)
+                ldapUser.Title = user["title"].Value.ToString();
+            else
+                ldapUser.Title = "";
+
+            if (user["memberOf"].Value != null)
+            {
+                ldapUser.Groups = new List<LDAPgroup>();
+                foreach (string group in user["memberOf"])
+                {
+                    String root = rs.Path.Substring(0, rs.Path.LastIndexOf('/') + 1);
+                    LDAPgroup entry = new LDAPgroup(root + group);
+                    ldapUser.Groups.Add(entry);
+                }
+            }
+            else
+                ldapUser.Groups = new List<LDAPgroup>();
+
+            if (user["department"].Value != null)
+                ldapUser.Department = user["department"].Value.ToString();
+
+            ldapUser.UserDN = user["DistinguishedName"][0].ToString();
+
+            if (user["userAccountControl"].Value != null)
+                ldapUser.Disabled = Convert.ToBoolean(Convert.ToInt32(user["userAccountControl"].Value) & ADS_UF_ACCOUNTDISABLE);
+
+            return ldapUser;
+        }
+
+        /* \ \ 
+         Summary
+         This private method constructs a LDAPuser object from a
+         provided SearchResult object.
+         Parameters
+         rs :  A SearchResult from an Active Directory query.
+         Returns
+         A constructed <link ADSearcher.LDAPuser, LDAPuser> object
+         containing the user data in the provided SearchResult object. */
+        private LDAPuser getLDAPContactFromSearchResult(SearchResult rs)
+        {
+            DirectoryEntry de = rs.GetDirectoryEntry();
+            LDAPuser ldapUser = new LDAPuser(de.Path);
+
+            String[] domparts = de.Path.Split('/');
+            foreach (String part in domparts)
+            {
+                Console.WriteLine(part);
+            }
+
+            if (Dump)
+                dumpValues(rs, domparts[2]);
+
+            var user = rs.GetDirectoryEntry().Properties;
+            ldapUser.Domain = domparts[0] + "//" + domparts[2];
+
+            foreach (String prop in user.PropertyNames)
+            {
+                for ( int i = 0; i < user[prop].Count; i++ )
+                {
+                    String propType = user[prop][i].GetType().ToString();
+                    String propStr = user[prop][i].ToString();
+                    if (propStr.CompareTo(propType) != 0)
+                        ldapUser.Properties.Add(new KeyValuePair<string, string>(prop, user[prop][i].ToString()));
+                }
+            }
+
             if (user["mail"].Value != null)
                 ldapUser.Email = user["mail"].Value.ToString().ToLower();
             else
@@ -929,38 +1199,33 @@ namespace ADSearcher
             string query = "(&(&(objectCategory=person)(objectClass=user))(samaccountname=" + username + "))";
             List<LDAPuser> ldapUsers = new List<LDAPuser>();
             List<LDAPuser> thisUser = new List<LDAPuser>();
-            if (domain.ToLower().Equals("agi"))
-                domain = "ad." + domain;
-            else
+            CDomain srchDom = new CDomain();
+
+            foreach(CDomain dom in Domains)
             {
-                thisUser = SearchADUsingLDAPQuery(username, domain, true);
-                if (thisUser == null || thisUser.Count < 1) return null;
-
-                domain = "ad.agi";
-                query = "(mail=" + thisUser[0].Email + ")";
-
+                if (dom.Name.ToLower().Contains(domain.ToLower()))
+                {
+                    srchDom = dom;
+                    break;
+                }
             }
  
             try
             {
-                DirectoryEntry de = new DirectoryEntry("LDAP://" + domain);
+                DirectoryEntry de = new DirectoryEntry(srchDom.Path);
+
+                if (!String.IsNullOrEmpty(srchDom.Credentials.Username))
+                {
+                    de.Username = srchDom.Credentials.Username;
+                    de.Password = srchDom.Credentials.Password;
+                }
+
                 DirectorySearcher ds = new DirectorySearcher(de);
                 
                 if (LimitProperties)
                 {
-                    ds.PropertiesToLoad.Add("proxyaddresses");
-                    ds.PropertiesToLoad.Add("mail");
-                    ds.PropertiesToLoad.Add("surname");
-                    ds.PropertiesToLoad.Add("displayName");
-                    ds.PropertiesToLoad.Add("userprincipalname");
-                    ds.PropertiesToLoad.Add("description");
-                    ds.PropertiesToLoad.Add("memberOf");
-                    ds.PropertiesToLoad.Add("membership");
-                    ds.PropertiesToLoad.Add("anr");
-                    ds.PropertiesToLoad.Add("enabled");
-                    ds.PropertiesToLoad.Add("department");
-                    ds.PropertiesToLoad.Add("title");
-                    ds.PropertiesToLoad.Add("userAccountControl");
+                    foreach (String property in Properties)
+                        ds.PropertiesToLoad.Add(property);
                 }
                 ds.Filter = query;
                 SearchResult rs = ds.FindOne();
@@ -974,25 +1239,14 @@ namespace ADSearcher
                     var emails = thisUser[0].OtherEmails.Cast<String>().ToList();
                     foreach (String email in emails)
                     {
-                        domain = "ad.agi";
                         query = "(mail=" + email + ")";
-                        de = new DirectoryEntry("LDAP://" + domain);
+                        de = new DirectoryEntry(srchDom.Path);
                         ds = new DirectorySearcher(de);
 
                         if (LimitProperties)
                         {
-                            ds.PropertiesToLoad.Add("proxyaddresses");
-                            ds.PropertiesToLoad.Add("mail");
-                            ds.PropertiesToLoad.Add("surname");
-                            ds.PropertiesToLoad.Add("displayName");
-                            ds.PropertiesToLoad.Add("userprincipalname");
-                            ds.PropertiesToLoad.Add("description");
-                            ds.PropertiesToLoad.Add("memberOf");
-                            ds.PropertiesToLoad.Add("membership");
-                            ds.PropertiesToLoad.Add("anr");
-                            ds.PropertiesToLoad.Add("enabled");
-                            ds.PropertiesToLoad.Add("department");
-                            ds.PropertiesToLoad.Add("title");
+                            foreach (String property in Properties)
+                                ds.PropertiesToLoad.Add(property);
                         }
                         ds.Filter = query;
                         rs = ds.FindOne();
@@ -1011,36 +1265,108 @@ namespace ADSearcher
             return ldapUsers;
         }
 
+        /* Summary
+           Resolves a Foreign Security Principal Security ID to a NT
+           user account.
+           Parameters
+           SID :     The Security ID to resolve.
+           domain :  The name of the domain to search.
+           
+           Returns
+           A List\<LDAPuser\> matching the resolved SID.             */
         public List<LDAPuser> SearchAGIADForContactUsingSID(string SID, string domain)
         {
             String username = "";
             if (domain.ToLower().Equals("agi"))
                 domain = "ad." + domain;
+            String domainName = "";
             try
             {
                 System.Security.Principal.SecurityIdentifier sid = new System.Security.Principal.SecurityIdentifier(SID);
                 System.Security.Principal.NTAccount acct = (System.Security.Principal.NTAccount)sid.Translate(typeof(System.Security.Principal.NTAccount));
-                
-                username = acct.ToString().Split('\\')[1];
-            }
-            catch { return null; }
 
-            return SearchADUsingLDAPQuery("samaccountname=" + username, true);
+                String[] parts = acct.ToString().Split('\\');
+                domainName = parts[0];
+                username = parts[1];
+            }
+            catch (Exception ex) { m_log.Error("List<LDAPuser> SearchAGIADForContactUsingSID(" + SID + ", " + domain + ") failed to resolve SID to NT Account.", ex); return null; }
+            CDomain srchDom = new CDomain();
+            foreach(CDomain dom in Domains)
+            {
+                if(dom.Name.CompareTo(domainName) == 0)
+                {
+                    srchDom = dom;
+                    break;
+                }
+            }
+            if(!String.IsNullOrEmpty(srchDom.Name))
+                return SearchForUser("(samaccountname=" + username + ")", srchDom);
+            else
+                return SearchForUser("(samaccountname=" + username + ")");
+        }
+
+        public String ResolveSIDToName(string SID, string domain)
+        {
+            String username = "";
+            if (domain.ToLower().Equals("agi"))
+                domain = "ad." + domain;
+            String domainName = "";
+            try
+            {
+                System.Security.Principal.SecurityIdentifier sid = new System.Security.Principal.SecurityIdentifier(SID);
+                System.Security.Principal.NTAccount acct = (System.Security.Principal.NTAccount)sid.Translate(typeof(System.Security.Principal.NTAccount));
+
+                String[] parts = acct.ToString().Split('\\');
+                domainName = parts[0];
+                username = parts[1];
+            }
+            catch (Exception ex) { m_log.Error("List<LDAPuser> SearchAGIADForContactUsingSID(" + SID + ", " + domain + ") failed to resolve SID to NT Account.", ex); return null; }
+            return username;
         }
     }
 
+    /* \ \ 
+       Description
+       This enumeration is used to set the desired logging level for
+       error log entries.                                            */
     public enum ErrorLevel
     {
-        ALL,
-        ERRORTOWARN,
-        ALLTOWARN,
-        ALLTOINFO
+        ALL, /* \ \ 
+           Description
+           This sets all log output to it's original level. */
+        
+        ERRORTOWARN, /* \ \ 
+           Description
+           This forces all "Error" output down to "Warn". */
+        
+        ALLTOWARN, /* \ \ 
+           Description
+           This sets all log output to "Warn" level. */
+        
+        ALLTOINFO /* \ \ 
+           Description
+           This forces all log output to "Info" level. */
+        
     }
 
+    /* \ \ 
+       Description
+       Used internally to pass the desired log output level from the
+       error location. This is overridden by the ErrorModifyLevel
+       setting.                                                      */
     public enum LogType
     {
-        INFO,
-        WARN,
-        ERROR
+        INFO, /* \ \ 
+           Description
+           Informational output desired. */
+        
+        WARN, /* \ \ 
+           Description
+           Warning output desired. */
+        
+        ERROR /* \ \ 
+           Description
+           Error output desired. */
+        
     }
 }
